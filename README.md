@@ -1,1 +1,1 @@
-# howScrewedAmI
+# how-screwed-am-i
