@@ -22,22 +22,24 @@ const convertLetterToGPA = (letter) => {
 
 
 const calculate = ()=>{
+r
+    let credit1 = document.getElementById("credit1").innerText;
 
-    let credit1 = document.querySelector("#credit1").value;
+    let gpa1 = document.getElementById("gpa1").innerText;
+    let gpa1convert = convertLetterToGPA(gpa1);
 
-    let gpa1 = querySelector("#gpa1").value;
-
-    let multiply = parseFloat(course1)*parseFloat(credit1);
+    let multiply = gpa1convert*parseFloat(credit1);
 
     let credit_sum = parseFloat(credit1);
 
-    let term_gpa = 4;
-
-    document.getElementById("show_gpa").innerHTML = term_gpa;
+    let term_gpa = multiply/credit_sum;
     
-
+    var html="<p>Your GPA is: "+term_gpa+"</p>";
+    document.getElementById("show_gpa").innerHTML = html;
 }
 
+
+console.log(calculate());
 
 /*
 //ensure reasonable values were inputted

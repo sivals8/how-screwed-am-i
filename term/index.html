@@ -2,7 +2,8 @@
 <html lang = "en">
 <head>
     <title>TERM CALCULATOR</title>
-    <link rel = "stylesheet" href = "style.css">
+    <script src="index.js"></script>
+    <link rel = "stylesheet" href = "../style.css">
 </head>
 <body>
     <div class = "main">
@@ -14,7 +15,7 @@
 
         </div class = "menu">
             <ul>
-                <li><a href = "index.html">HOME</a></li>
+                <li><a href = "../index.html">HOME</a></li>
                 <li><a href = "#">ABOUT</a></li>
                 <li><a href = "#">SERVICE</a></li>
                 <li><a href = "#">DESIGN</a></li>
@@ -27,31 +28,57 @@
         </div>
 
         <div class="par_term">
-            <p class = "par_term"></p>In the first column, enter then name of your course. In the second, enter the credits for that course. Finally, choose your letter grade from the drop down menu.</p>
+            <p class = "par_term"></p>In the first column, enter the name of your course. In the second column, enter the credits for that course. Finally, choose your letter grade from the drop down menu.</p>
         </div>
+        
 
         <div class="table">
             <div class="course_name">
-                <input type = "string" placeholder = "ex. CHEM 1A03"/>
-                <input type = "string" />
-                <input type = "string" />
-                <input type = "string" />
-                <input type = "string" />
-                <input type = "string" />
+                <p class = "course_title">COURSE</p> 
+                <input type = "string" placeholder = "ex. CHEM 1A03" id = "course1" tabindex="1"/>
+                <input type = "string" tabindex="4" id = "course2" />
+                <input type = "string" tabindex="7" id = "course3" />
+                <input type = "string" tabindex="10" id = "course4" />
+                <input type = "string" tabindex="13" id = "course5" />
+                <input type = "string" tabindex="16" id = "course6" />
             </div>
 
             <div class="earned_credits">
-                <input type = "number" id = "cred" placeholder = "ex. 4"/>
-                <input type = "number" id = "cred" />
-                <input type = "number" id = "cred" />
-                <input type = "number" id = "cred" />
-                <input type = "number" id = "cred" />
-                <input type = "number" id = "cred" />
+                <p class = "credit_title">CREDITS</p>
+                <input type = "number" id = "credit1" placeholder = "ex. 4"tabindex="2"/>
+                <input type = "number" id = "credit2" tabindex="5"/>
+                <input type = "number" id = "credit3" tabindex="8"/>
+                <input type = "number" id = "credit4" tabindex="11"/>
+                <input type = "number" id = "credit5" tabindex="14"/>
+                <input type = "number" id = "credit6" tabindex="17"/>
             </div>
 
             <div class="gpa">
+                <p class = "gpa_title"></p><span>GRADE</span></p>
                 <label for = "grades"></label>
-                <select id = "grades" name = "grades">
+                <select id = "grade1" name = "grades" tabindex="3">
+                    <option type = "string" value = "-"> </option>
+                    <option type = "string" value = "A+">A+</option>
+                    <option type = "string" value = "A">A</option>
+                    <option type = "string" value = "A-">A-</option>
+
+                    <option value = "B+">B+</option>
+                    <option value = "B">B</option>
+                    <option value = "B-">B-</option>
+
+                    <option value = "C+">C+</option>
+                    <option value = "C">C</option>
+                    <option value = "C-">C-</option>
+                    
+                    <option value = "D+">D+</option>
+                    <option value = "D">D</option>
+                    <option value = "D-">D-</option>
+
+                    <option value = "F">F</option>
+                </select>
+
+                <label for = "grades"></label>
+                <select id = "grade2" name = "grades" tabindex="6">
                     <option value = "-"> </option>
                     <option value = "A+">A+</option>
                     <option value = "A">A</option>
@@ -73,7 +100,7 @@
                 </select>
 
                 <label for = "grades"></label>
-                <select id = "grades" name = "grades">
+                <select id = "grade3" name = "grades" tabindex="9">
                     <option value = "-"> </option>
                     <option value = "A+">A+</option>
                     <option value = "A">A</option>
@@ -95,7 +122,7 @@
                 </select>
 
                 <label for = "grades"></label>
-                <select id = "grades" name = "grades">
+                <select id = "grade4" name = "grades" tabindex="12">
                     <option value = "-"> </option>
                     <option value = "A+">A+</option>
                     <option value = "A">A</option>
@@ -117,7 +144,7 @@
                 </select>
 
                 <label for = "grades"></label>
-                <select id = "grades" name = "grades">
+                <select id = "grade5" name = "grades" tabindex="15">
                     <option value = "-"> </option>
                     <option value = "A+">A+</option>
                     <option value = "A">A</option>
@@ -139,29 +166,7 @@
                 </select>
 
                 <label for = "grades"></label>
-                <select id = "grades" name = "grades">
-                    <option value = "-"> </option>
-                    <option value = "A+">A+</option>
-                    <option value = "A">A</option>
-                    <option value = "A-">A-</option>
-
-                    <option value = "B+">B+</option>
-                    <option value = "B">B</option>
-                    <option value = "B-">B-</option>
-
-                    <option value = "C+">C+</option>
-                    <option value = "C">C</option>
-                    <option value = "C-">C-</option>
-                    
-                    <option value = "D+">D+</option>
-                    <option value = "D">D</option>
-                    <option value = "D-">D-</option>
-
-                    <option value = "F">F</option>
-                </select>
-
-                <label for = "grades"></label>
-                <select id = "grades" name = "grades">
+                <select id = "grade6" name = "grades" tabindex="18">
                     <option value = "-"> </option>
                     <option value = "A+">A+</option>
                     <option value = "A">A</option>
@@ -187,9 +192,12 @@
         </div>
 
         <div class="calculate">
-            <a href = "#"> <button class = "calc_btn"><span>calculate</span></button></a>
-            <a button onclick = "addRecord()"> <button class = "add_rec"><span>Add to Cumulative Calculator</span></button></a>
-            <p id = "error"></p>
+            <button class="calc_btn" onclick="calculate()"><span>Calculate</span></button>
+            <button class="add_rec" onclick="addRecord()"><span>Add to Cumulative Calculator</span></button>
+        </div>
+
+        <div class="show_gpa">
+            <p id = "show_gpa"></p>
         </div>
 
 
@@ -199,4 +207,4 @@
 
 
 </body>
-<html>
+</html>
