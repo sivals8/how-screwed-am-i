@@ -21,25 +21,39 @@ const convertLetterToGPA = (letter) => {
 };
 
 
-const calculate = ()=>{
-r
-    let credit1 = document.getElementById("credit1").innerText;
+function calculate(){
 
-    let gpa1 = document.getElementById("gpa1").innerText;
-    let gpa1convert = convertLetterToGPA(gpa1);
-
-    let multiply = gpa1convert*parseFloat(credit1);
-
-    let credit_sum = parseFloat(credit1);
-
-    let term_gpa = multiply/credit_sum;
     
-    var html="<p>Your GPA is: "+term_gpa+"</p>";
-    document.getElementById("show_gpa").innerHTML = html;
+    const credit1 = Number(document.getElementById('credit1').value);
+    const credit2 = Number(document.getElementById('credit2').value);
+    const credit3 = Number(document.getElementById('credit3').value);
+    const credit4 = Number(document.getElementById('credit4').value);
+    const credit5 = Number(document.getElementById('credit5').value);
+    const credit6 = Number(document.getElementById('credit6').value);
+
+    const grade1 = document.getElementById('grade1').value;
+    const grade2 = document.getElementById('grade2').value; 
+    const grade3 = document.getElementById('grade3').value;
+    const grade4 = document.getElementById('grade4').value;
+    const grade5 = document.getElementById('grade5').value;
+    const grade6 = document.getElementById('grade6').value;
+
+    const g1convert = convertLetterToGPA(grade1);
+    const g2convert = convertLetterToGPA(grade2);
+    const g3convert = convertLetterToGPA(grade3);
+    const g4convert = convertLetterToGPA(grade4);
+    const g5convert = convertLetterToGPA(grade5);
+    const g6convert = convertLetterToGPA(grade6);
+
+    const multiply = parseFloat(credit1)*parseFloat(g1convert) + parseFloat(credit2)*parseFloat(g2convert) + parseFloat(credit3)*parseFloat(g3convert) +
+    parseFloat(credit4)*parseFloat(g4convert) + parseFloat(credit5)*parseFloat(g5convert) + parseFloat(credit6)*parseFloat(g6convert);
+
+    const total_credits = credit1 + credit2 + credit3 + credit4 + credit5 + credit6;
+    const term_gpa = multiply/total_credits;
+    document.getElementById('show_gpa').innerHTML = term_gpa.toFixed(2);
+    
 }
 
-
-console.log(calculate());
 
 /*
 //ensure reasonable values were inputted
