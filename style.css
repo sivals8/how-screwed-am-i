@@ -10,7 +10,7 @@
     background-color: #021922;
     background-position: center;
     background-size: cover;
-    height: 109vh;
+    height: 300vh;
 
 }
 
@@ -206,6 +206,75 @@ span {
 
 }
 
+.calcScroll{
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    margin-top: 200px;
+    display: grid;
+    justify-content: center; 
+    align-items: center; 
+}
+
+
+.calcImage img{
+    width: 100%;
+    animation: appear linear;
+    animation-timeline: view();
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.7;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+
+.calcImage{
+    position: relative;
+    width: 1200px;
+    height: auto;
+    margin-top: 10px;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 20px;
+    color: #EFD9CE;
+}
+
+.aboutUs{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the text */
+    font-size: 30px;
+    color: #EFD9CE;
+    padding: 10px;
+    border-radius: 5px; 
+
+    animation: appear linear;
+    animation-timeline: view();
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.7;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+
+
 .table {
     display: flex;
     justify-content: center;
@@ -214,7 +283,6 @@ span {
     background-color: transparent;
 
 }
-
 
 .table .course_name{
     display: flex; 
@@ -243,9 +311,19 @@ span {
     font-size: 20px;
     color: rgba(188, 71, 73, 1);
 }
+
+.table .Cgpa{
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width: 90px; 
+    font-size: 20px;
+    color: rgba(188, 71, 73, 1);
+}
+
 .course_name input, 
 .earned_credits input, 
-.gpa select {
+.gpa select, .Cgpa input {
     margin: 10px 0; 
     width: 100%; 
     height: 40px; 
@@ -262,11 +340,12 @@ span {
 
 .course_name input:focus, 
 .earned_credits input:focus, 
-.gpa select:focus {
+.gpa select:focus, .Cgpa input:focus {
     outline: none;
     border: 1px solid #BC4749;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
 
 /*to change the arrows from white to dark mode
 .earned_credits input[type = "number"]::-webkit-inner-spin-button, .earned_credits input[type = "number"]::-webkit-outer-spin-button{
@@ -278,12 +357,12 @@ span {
 */
 
 
-.calculate {
+.calculate, .Ccalculate {
     margin-top: 30px; 
     text-align: center;
 }
 
-.calc_btn, .add_rec {
+.calc_btn, .add_rec, .Ccalc_btn{
     padding: 10px 20px;
     font-size: 16px;
     background-color: rgba(188, 71, 73, 0.5);
@@ -294,20 +373,13 @@ span {
     transition: background-color 0.3s ease; 
 }
 
-.calc_btn:hover, .add_rec:hover {
+.calc_btn:hover, .add_rec:hover, .Ccalc_btn:hover {
     background-color: #BC4749; 
 }
 
-.show_gpa{
-    text-align: center;
-    font-size: 20px;
-    color: #EFD9CE;
-}
-
-
-
-/*
 .skill{
+    margin-top: 120px;
+    margin-left: 70px;
     width: 160px;
     height: 160px;
     position: relative;
@@ -317,7 +389,6 @@ span {
     height: 160px;
     border-radius: 50%;
     border: 1px solid rgba(2, 25, 34, 1);
-    padding: 20px;
     box-shadow: 6px 6px 10px -1px rgba(7, 36, 47, 0.15),
                 -6px -6px 10px -1px rgba(7, 36, 47, 0.7)
 }
@@ -325,12 +396,96 @@ span {
 .inner{
     width: 120px;
     height: 120px;
+    padding: 20px;
     border-radius: 50%;
     border: 1px solid rgba(7, 36, 47, 1);
-    padding: 20px;
-    box-shadow: inset 4px 4px 6px -1px rgba(7, 36, 47, 0.2),
+    box-shadow: inset 4px 4px 6px -1px rgba(7, 36, 47, 0.15),
                 inset -4px -4px 6px -1px rgba(7, 36, 47, 0.7),
                 -0.5px -0.5px 0px rgba(7, 36, 47, 1),
                 0.5px 0.5px 0px rgba(7, 36, 47, 0.15),
                 0px 12px 10px -10px rgba(7, 36, 47, 0.05);
 }
+#circle_number{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 25px;
+    color: #EFD9CE;
+}
+
+#small_12{
+    text-align: center;
+    margin-top: -5px;
+    margin-left: 60px;
+    font-size: 15px;
+    color: #EFD9CE;
+}
+
+
+
+:root {
+    --main-gpa: 440; /* Default value */
+  }
+
+circle{
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 440;
+    stroke-dashoffset: var(--main-gpa);
+    transition: stroke-dashoffset 2s ease-in-out;
+}
+svg{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/*duplicate for cumulative*/
+
+.Cskill{
+    margin-top: 120px;
+    margin-left: 70px;
+    width: 160px;
+    height: 160px;
+    position: relative;
+}
+.Couter{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 1px solid rgba(2, 25, 34, 1);
+    box-shadow: 6px 6px 10px -1px rgba(7, 36, 47, 0.15),
+                -6px -6px 10px -1px rgba(7, 36, 47, 0.7)
+}
+
+.Cinner{
+    width: 120px;
+    height: 120px;
+    padding: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(7, 36, 47, 1);
+    box-shadow: inset 4px 4px 6px -1px rgba(7, 36, 47, 0.15),
+                inset -4px -4px 6px -1px rgba(7, 36, 47, 0.7),
+                -0.5px -0.5px 0px rgba(7, 36, 47, 1),
+                0.5px 0.5px 0px rgba(7, 36, 47, 0.15),
+                0px 12px 10px -10px rgba(7, 36, 47, 0.05);
+}
+.Ccircle_number{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 25px;
+    color: #EFD9CE;
+}
+
+#Csmall_12{
+    text-align: center;
+    margin-top: -5px;
+    margin-left: 60px;
+    font-size: 15px;
+    color: #EFD9CE;
+}
+
+
+

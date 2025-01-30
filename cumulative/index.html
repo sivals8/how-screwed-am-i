@@ -22,16 +22,80 @@
             </ul>
         </div>
 
-        <div class="content_cumulative">
+        <div class="content_term">
             <h1>Cumulative Calculator</h1>
         </div>
 
-        <div class="par_cumulative">
-            <p class = "par_cumulative"></p>In the first column, enter then name of your semester. In the second, enter the total credits for that semester. Finally, enter your numerical GPA value on the 12 point scale.</p>
+        <div class="par_term">
+            <p class = "par_term"></p>In the first column, enter the name of your course. In the second column, enter the credits for that course. Finally, input your numerical GPA (ex. 8.5).</p>
         </div>
+        
+
+        <div class="table">
+            <div class="course_name">
+                <p class = "course_title">COURSE</p> 
+                <input type = "string" placeholder = "ex. CHEM 1A03" id = "Ccourse1" tabindex="1"/>
+                <input type = "string" tabindex="4" id = "Ccourse2" />
+                <input type = "string" tabindex="7" id = "Ccourse3" />
+                <input type = "string" tabindex="10" id = "Ccourse4" />
+                <input type = "string" tabindex="13" id = "Ccourse5" />
+                <input type = "string" tabindex="16" id = "Ccourse6" />
+            </div>
+
+            <div class="earned_credits">
+                <p class = "credit_title">CREDITS</p>
+                <input type = "number" id = "Ccredit1" placeholder = "ex. 4"tabindex="2"/>
+                <input type = "number" id = "Ccredit2" tabindex="5"/>
+                <input type = "number" id = "Ccredit3" tabindex="8"/>
+                <input type = "number" id = "Ccredit4" tabindex="11"/>
+                <input type = "number" id = "Ccredit5" tabindex="14"/>
+                <input type = "number" id = "Ccourse6" tabindex="17"/>
+            </div>
+            <div class = "Cgpa">
+                <p class = "gpa_title"></p><span>GRADE</span></p>
+                <input type = "number" id = "Cgrade1" placeholder = "ex. 4"tabindex="2"/>
+                <input type = "number" id = "Cgrade2" tabindex="5"/>
+                <input type = "number" id = "Cgrade3" tabindex="8"/>
+                <input type = "number" id = "Cgrade4" tabindex="11"/>
+                <input type = "number" id = "Cgrade5" tabindex="14"/>
+                <input type = "number" id = "Cgrade6" tabindex="17"/>
+            </div>
+
+            <div class="Cskill">
+                <div class="Couter">
+                    <div class="Cinner">
+                        <div id ="Ccircle_number"></div>
+                        <div id ="Csmall_12"></div>
+
+                    </div>
+                </div>
+
+                <svg xlmns = "http://www.w3.org/2000/svg" version  = "1.1"
+                width = "160px" height = "160px" >
+                    <defs>
+                        <linearGradient id = "GradientColor2" >
+                            <stop offset = "0%" stop-color = "#BC4749" />
+                            <stop offset = "100%" stop-color = "rgba(188, 71, 73, 0.5)" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx = "80" cy = "80" r = "70" stroke-linecap = "round" />
+
+                </svg>
+
+
+            </div>
+
+        </div>
+        <script src="index.js"></script>
+        
+        <div class="Ccalculate">
+            <button class="Ccalc_btn" onclick="CGPAcalculate()"><span>Calculate</span></button>
+        </div>
+
+        <div class = "Cshow_gpa" id = "Cshow_gpa"></div>
 
     </div>
 
 
 </body>
-<html>
+</html>

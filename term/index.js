@@ -20,7 +20,6 @@ const convertLetterToGPA = (letter) => {
     return gradeToNum[letter] || 0.0;
 };
 
-
 function calculate(){
 
     
@@ -45,14 +44,80 @@ function calculate(){
     const g5convert = convertLetterToGPA(grade5);
     const g6convert = convertLetterToGPA(grade6);
 
-    const multiply = parseFloat(credit1)*parseFloat(g1convert) + parseFloat(credit2)*parseFloat(g2convert) + parseFloat(credit3)*parseFloat(g3convert) +
-    parseFloat(credit4)*parseFloat(g4convert) + parseFloat(credit5)*parseFloat(g5convert) + parseFloat(credit6)*parseFloat(g6convert);
+    const calc1 = parseFloat(credit1)*parseFloat(g1convert);
+    const calc2 = parseFloat(credit2)*parseFloat(g2convert);
+    const calc3 = parseFloat(credit3)*parseFloat(g3convert);
+    const calc4 = parseFloat(credit4)*parseFloat(g4convert);
+    const calc5 = parseFloat(credit5)*parseFloat(g5convert);
+    const calc6 = parseFloat(credit6)*parseFloat(g6convert);
+
+    const multiply = calc1 + calc2 + calc3 + calc4 + calc5 + calc6;
 
     const total_credits = credit1 + credit2 + credit3 + credit4 + credit5 + credit6;
     const term_gpa = multiply/total_credits;
-    document.getElementById('show_gpa').innerHTML = term_gpa.toFixed(2);
+    let term_gpaR = term_gpa.toFixed(2);
+    
+    if(isNaN(term_gpaR))
+    {
+        alert("Error: Make sure to fill out both fields of a course.")
+    }
+    else if(!isNaN(credit1) && credit1 < 0)
+    {
+        alert("Make sure to enter a positive credit value.")
+    }
+    else if(!isNaN(credit2) && credit2 < 0)
+    {
+        alert("Make sure to enter a positive credit value.")
+    }
+    else if(!isNaN(credit3) && credit3 < 0)
+    {
+        alert("Make sure to enter a positive credit value.")
+    }
+    else if(!isNaN(credit4) && credit4 < 0)
+    {
+        alert("Make sure to enter a positive credit value.")
+    }
+    else if(!isNaN(credit5) && credit5 < 0)
+    {
+        alert("Make sure to enter a positive credit value.")
+    }
+    else if(!isNaN(credit6) && credit6 < 0)
+    {
+        alert("Make sure to enter a positive credit value.")
+    }
+    else
+    {
+
+        document.getElementById('show_gpa').innerHTML = term_gpaR;
+        document.getElementById('small_12').innerHTML = "/12";
+
+        let number = document.getElementById("circle_number");
+        let counter = 0;
+        let speed = 0.5;
+        let interval = setInterval(() => {
+            if(counter >= term_gpa)
+            {
+                clearInterval(interval);
+                number.innerHTML = term_gpaR;
+            }
+            else{
+                speed = 0.018*term_gpaR;
+                counter += speed;
+                number.innerHTML = counter.toFixed(2);
+            }
+            
+
+        }, 30);
+
+        const circlePercent = 440 - (440*(term_gpaR/12));
+        document.documentElement.style.setProperty('--main-gpa', circlePercent);
+        let circle = document.getElementById('circle');
+   
+    }
     
 }
+
+
 
 
 /*
