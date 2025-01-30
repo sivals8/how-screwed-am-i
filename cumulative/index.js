@@ -1,39 +1,45 @@
+let numOfAdds = 0;
+let add = false;
+function addRow(){
+    numOfAdds ++;
+    var table = document.getElementById("course_name");
+    var row = table.insertRow(0);
+    add = true;
+    return 1;
+}
+
+
 
 function CGPAcalculate(){
+    let allCredits = [];
+    let allGrades = [];
+    let totalCredits = 0;
+    let totalNumerator = 0;
+    let size = 6;
+    if(add == true)
+    {
+        size = 6 + numOfAdds;
+    }
+    for(let i = 1; i <= size; i++)
+    {
+        allCredits.push(Number(document.getElementById(`Ccredit${i}`).value));
+        allGrades.push(Number(document.getElementById(`Cgrade${i}`).value));
+    }
 
-    
-    const credit1 = Number(document.getElementById('Ccredit1').value);
-    const credit2 = Number(document.getElementById('Ccredit2').value);
-    const credit3 = Number(document.getElementById('Ccredit3').value);
-    const credit4 = Number(document.getElementById('Ccredit4').value);
-    const credit5 = Number(document.getElementById('Ccredit5').value);
-    const credit6 = Number(document.getElementById('Ccredit6').value);
+    for(let j = 0; j < size; j++)
+    {
+        totalCredits += allCredits[j];
+        totalNumerator += (allGrades[j] * allCredits[j]);
+    }
 
-    const grade1 = Number(document.getElementById('Cgrade1').value);
-    const grade2 = Number(document.getElementById('Cgrade2').value); 
-    const grade3 = Number(document.getElementById('Cgrade3').value);
-    const grade4 = Number(document.getElementById('Cgrade4').value);
-    const grade5 = Number(document.getElementById('Cgrade5').value);
-    const grade6 = Number(document.getElementById('Cgrade6').value);
-
-    const calc1 = parseFloat(credit1)*parseFloat(grade1);
-    const calc2 = parseFloat(credit2)*parseFloat(grade2);
-    const calc3 = parseFloat(credit3)*parseFloat(grade3);
-    const calc4 = parseFloat(credit4)*parseFloat(grade4);
-    const calc5 = parseFloat(credit5)*parseFloat(grade5);
-    const calc6 = parseFloat(credit6)*parseFloat(grade6);
-
-    const multiply = calc1 + calc2 + calc3 + calc4 + calc5 + calc6;
-
-    const total_credits = credit1 + credit2 + credit3 + credit4 + credit5 + credit6;
-    const term_gpa = multiply/total_credits
+    const term_gpa = totalNumerator / totalCredits;
     let term_gpaR = term_gpa.toFixed(2);
     
 
 
-    document.getElementById('Cshow_gpa').innerHTML = '12';
+    document.getElementById('Cshow_gpa').innerHTML = term_gpaR;
     document.getElementById('Csmall_12').innerHTML = "/12";
-    document.getElementById("Ccircle_number").innerHTML = 5;
+    document.getElementById("Ccircle_number").innerHTML = term_gpaR;
     let number = document.getElementById("Ccircle_number");
     let counter = 0;
     let speed = 0.5;
@@ -50,10 +56,10 @@ function CGPAcalculate(){
         }
         
 
-    }, 30);
+    }, 30); 
 
     const circlePercent = 440 - (440*(term_gpaR/12));
-    document.documentElement.style.setProperty('--main-gpaC', circlePercent);
+    document.documentElement.style.setProperty('--main-gpa', circlePercent);
     let circle = document.getElementById('circle');
 
 

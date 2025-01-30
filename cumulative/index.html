@@ -33,8 +33,8 @@
 
         <div class="table">
             <div class="course_name">
-                <p class = "course_title">COURSE</p> 
-                <input type = "string" placeholder = "ex. CHEM 1A03" id = "Ccourse1" tabindex="1"/>
+                <p class = "course_title">SEMESTER</p> 
+                <input type = "string" placeholder = "ex. Winter 2025" id = "Ccourse1" tabindex="1"/>
                 <input type = "string" tabindex="4" id = "Ccourse2" />
                 <input type = "string" tabindex="7" id = "Ccourse3" />
                 <input type = "string" tabindex="10" id = "Ccourse4" />
@@ -44,16 +44,16 @@
 
             <div class="earned_credits">
                 <p class = "credit_title">CREDITS</p>
-                <input type = "number" id = "Ccredit1" placeholder = "ex. 4"tabindex="2"/>
+                <input type = "number" id = "Ccredit1" placeholder = "ex. 30"tabindex="2"/>
                 <input type = "number" id = "Ccredit2" tabindex="5"/>
                 <input type = "number" id = "Ccredit3" tabindex="8"/>
                 <input type = "number" id = "Ccredit4" tabindex="11"/>
                 <input type = "number" id = "Ccredit5" tabindex="14"/>
-                <input type = "number" id = "Ccourse6" tabindex="17"/>
+                <input type = "number" id = "Ccredit6" tabindex="17"/>
             </div>
             <div class = "Cgpa">
                 <p class = "gpa_title"></p><span>GRADE</span></p>
-                <input type = "number" id = "Cgrade1" placeholder = "ex. 4"tabindex="2"/>
+                <input type = "number" id = "Cgrade1" placeholder = "ex. 8.5"tabindex="2"/>
                 <input type = "number" id = "Cgrade2" tabindex="5"/>
                 <input type = "number" id = "Cgrade3" tabindex="8"/>
                 <input type = "number" id = "Cgrade4" tabindex="11"/>
@@ -73,7 +73,7 @@
                 <svg xlmns = "http://www.w3.org/2000/svg" version  = "1.1"
                 width = "160px" height = "160px" >
                     <defs>
-                        <linearGradient id = "GradientColor2" >
+                        <linearGradient id = "GradientColor" >
                             <stop offset = "0%" stop-color = "#BC4749" />
                             <stop offset = "100%" stop-color = "rgba(188, 71, 73, 0.5)" />
                         </linearGradient>
@@ -90,6 +90,7 @@
         
         <div class="Ccalculate">
             <button class="Ccalc_btn" onclick="CGPAcalculate()"><span>Calculate</span></button>
+            <button class="Cadd_row" onclick="addRow()"><span>Add another Row</span></button>
         </div>
 
         <div class = "Cshow_gpa" id = "Cshow_gpa"></div>
