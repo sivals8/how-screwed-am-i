@@ -181,7 +181,8 @@ span {
     transition: transform 0.3s ease;
   }
 
-.content_term, .content_cumulative{
+.content_term{
+    position: relative;
     width: 1200px;
     height: auto;
     margin-top: 30px;
@@ -195,7 +196,8 @@ span {
 
 }
 
-.par_term, .par_cumulative{
+.par_term{
+    position: relative;
     width: 1200px;
     height: auto;
     margin-top: 10px;

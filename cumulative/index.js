@@ -8,7 +8,7 @@ function addRow(){
     return 1;
 }
 
-
+let prev_gpa = 0;
 
 function CGPAcalculate(){
     let allCredits = [];
@@ -32,35 +32,67 @@ function CGPAcalculate(){
         totalNumerator += (allGrades[j] * allCredits[j]);
     }
 
+
     const term_gpa = totalNumerator / totalCredits;
     let term_gpaR = term_gpa.toFixed(2);
     
-
-
-    document.getElementById('Cshow_gpa').innerHTML = term_gpaR;
-    document.getElementById('Csmall_12').innerHTML = "/12";
-    document.getElementById("Ccircle_number").innerHTML = term_gpaR;
-    let number = document.getElementById("Ccircle_number");
-    let counter = 0;
-    let speed = 0.5;
-    let interval = setInterval(() => {
-        if(counter >= term_gpa)
+    let error = 0;
+    let outOfRange = 0;
+    for(let k = 0; k < size; k++)
+    {
+        if(allCredits[k] < 0 || allGrades[k] < 0)
         {
-            clearInterval(interval);
-            number.innerHTML = term_gpaR;
-        }
-        else{
-            speed = 0.018*term_gpaR;
-            counter += speed;
-            number.innerHTML = counter.toFixed(2);
+            error = 1;
         }
         
+        if(allGrades[k] > 12)
+        {
+            outOfRange = 1;
+        }
+    }
 
-    }, 30); 
+    if(isNaN(term_gpaR))
+    {
+        alert("Error: Make sure to fill out both fields of a course, and ensure credit is a non-zero value.")
+    }
+    else if(error == 1)
+    {
+        alert("Make sure to enter positive values.")
+    }
+    else if(outOfRange == 1)
+    {
+        alert("It is not possible to have a GPA larger than 12, please adjust your input.")
+    }
+    else
+    {
 
-    const circlePercent = 440 - (440*(term_gpaR/12));
-    document.documentElement.style.setProperty('--main-gpa', circlePercent);
-    let circle = document.getElementById('circle');
+        document.getElementById('Cshow_gpa').innerHTML = term_gpaR;
+        document.getElementById('Csmall_12').innerHTML = "/12";
+        document.getElementById("Ccircle_number").innerHTML = term_gpaR;
+        let number = document.getElementById("Ccircle_number");
+        let counter = prev_gpa;
+        let speed = 0.5;
+        let interval = setInterval(() => {
+            if(counter >= term_gpa)
+            {
+                clearInterval(interval);
+                number.innerHTML = term_gpaR;
+            }
+            else{
+                speed = 0.018*term_gpaR;
+                counter += speed;
+                number.innerHTML = counter.toFixed(2);
+            }
+            
+    
+        }, 30); 
+    
+        const circlePercent = 440 - (440*(term_gpaR/12));
+        document.documentElement.style.setProperty('--main-gpa', circlePercent);
+        let circle = document.getElementById('circle');
+    
+    }
+
 
 
     
