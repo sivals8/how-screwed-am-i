@@ -11,6 +11,8 @@
     background-position: center;
     background-size: cover;
     height: 300vh;
+    font-family: 'Helvetica','Franklin Gothic Medium', 'Arial Narrow', Arial, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 
 }
 
@@ -20,24 +22,10 @@
     margin: auto;
 }
 
-.icon{
-    width: 200px;
-    float: left;
-    height: 70px;
 
-}
-
-.logo{
-    color: #BC4749;
-    font-size: 35px;
-    font-family: 'Times New Roman', Times, serif;
-    padding-left: 20px;
-    float: left;
-    padding-top: 10px;
-}
 
 .menu{
-    width: 12l00px;
+    width: 1200px;
     height: 70px;
 }
 
@@ -49,15 +37,14 @@ ul{
 
 ul li{
     list-style: none;
-    margin-left: 100px;
+    margin-right: 100px;
     margin-top: 27px;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 ul li a{
     text-decoration: none;
     color: #EFD9CE;
-    font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     transition: 0.3s ease-in-out;
 
